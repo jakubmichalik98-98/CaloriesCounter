@@ -2,16 +2,19 @@ from .models import Meal
 from django.shortcuts import render
 from django.http import HttpResponseRedirect
 from .forms import MealForm
+from datetime import date
 
 
 def index(request):
     meal_list = []
+    today_date = date.today()
+    kcal_sum = 0
 
     for my_meal in Meal.objects.all():
-        if my_meal.users == request.user.username:
+        if my_meal.date_added == today_date and my_meal.users == request.user.username:
             meal_list.append(my_meal)
-    context = {'meal_list': meal_list}
-
+            kcal_sum += my_meal.kcal_quantity
+    context = {'meal_list': meal_list, 'kcal_sum': kcal_sum}
     return render(request, 'calories/index.html', context)
 
 
@@ -30,3 +33,7 @@ def get_meal(request):
         form = MealForm()
 
     return render(request, "calories/name.html", {"form": form})
+
+
+def get_question(request):
+    return render(request, 'calories/question.html')
