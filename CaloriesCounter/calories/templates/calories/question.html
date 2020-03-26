@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Question</title>
+</head>
+<body>
+<h1>Welcome in Calories Counter app!</h1>
+<div>
+    If you want to see what have you eaten today, click here
+    <a href="{% url 'index' %}">Your meals today</a>
+</div>
+<div>
+
+    If you want to add new meal to your today's meals, click here
+    <a href="{% url 'get_name' %}">Add new meal</a>
+
+</div>
+</body>
+</html>

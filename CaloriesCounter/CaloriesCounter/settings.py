@@ -121,5 +121,5 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-LOGIN_REDIRECT_URL = '/calories/meal'
+LOGIN_REDIRECT_URL = '/calories/question'
 LOGOUT_REDIRECT_URL = 'home'

@@ -5,13 +5,17 @@
     <title>Title</title>
 </head>
 <body>
-<div>{{user.username}} you have eaten:</div>
+<div>{{user.username}} you have eaten today:</div>
 <div>
     <ul>
     {% for meal in meal_list %}
     <li>{{ meal }}</li>
         {% endfor %}
     </ul>
+</div>
+<div>
+    Sum of calories you've eaten today:
+    {{kcal_sum}}
 </div>
 
 </body>
