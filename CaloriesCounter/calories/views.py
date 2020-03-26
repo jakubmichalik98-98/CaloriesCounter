@@ -18,6 +18,11 @@ def get_meal(request):
     if request.method == "POST":
         form = MealForm(request.POST)
         if form.is_valid():
+            name = form.cleaned_data["name"]
+            category = form.cleaned_data["category"]
+            kcal_quantity = form.cleaned_data["kcal_quantity"]
+            meal = Meal(name=name, category=category, users="jakub", kcal_quantity=kcal_quantity)
+            meal.save()
             return HttpResponseRedirect("/calories/")
 
     else:
