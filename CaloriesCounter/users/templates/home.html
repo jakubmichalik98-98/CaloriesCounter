@@ -3,11 +3,15 @@
 {% block title %}Home{% endblock %}
 
 {% block content %}
-{% if user.is_authenticated %}
-  Hi {{ user.username }}!
-  <p><a href="{% url 'logout' %}">logout</a></p>
-{% else %}
-  <p>You are not logged in</p>
-  <a href="{% url 'login' %}">login</a>
-{% endif %}
+<h1>Try Calories Counter app!</h1>
+
+<div>
+  <p>To register click -><a href="{% url 'register' %}">register</a></p>
+  </div>
+
+<div>
+
+  <p>To login click -><a href="{% url 'login' %}">login</a></p>
+</div>
+
 {% endblock %}

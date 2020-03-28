@@ -3,6 +3,7 @@ from django.shortcuts import render
 from django.http import HttpResponseRedirect
 from .forms import MealForm
 from datetime import date
+import json
 
 
 def index(request):
@@ -32,7 +33,10 @@ def get_meal(request):
     else:
         form = MealForm()
 
-    return render(request, "calories/name.html", {"form": form})
+    with open("C:/ProjektyDjango/CaloriesCounter/calories.json", "r") as file:
+        calories = json.load(file)
+
+    return render(request, "calories/name.html", {"form": form, "calories": calories})
 
 
 def get_question(request):

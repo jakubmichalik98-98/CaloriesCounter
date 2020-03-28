@@ -11,5 +11,19 @@
     <input type="submit" value="Submit">
 </form>
 
+<div>
+    As you can see, you can fill a form and enter how many calories has your meal.
+    If you don't know how many calories has your meal, check list given below, there
+    are basic meals and their kcal quantity:
+    <ul>
+        {% for name,quantity in calories.items %}
+        <li>Product {{name}} has {{quantity}} calories</li>
+        {% endfor %}
+    </ul>
+
+</div>
+
+<p><a href="{% url 'logout' %}">logout</a></p>
+
 </body>
 </html>
