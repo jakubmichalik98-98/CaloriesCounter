@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Personal</title>
+</head>
+<body>
+<h1>Welcome in part of advanced calories counter</h1>
+<p>
+    First you have to do is fill a simple form given below. In this part of app you can check not only
+    how many calories you have eaten but also if you eat enough calories and check details of your eaten products:
+</p>
+<form action="/diets/personalform/" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Submit">
+</form>
+
+</body>
+</html>
