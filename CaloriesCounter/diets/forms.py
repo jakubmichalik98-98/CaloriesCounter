@@ -8,17 +8,17 @@ GENDER_CHOICES = [
 
 
 class PersonalForm(forms.Form):
-    weight = forms.IntegerField(label="Your Weight")
-    height = forms.IntegerField(label="Your Height")
+    weight = forms.IntegerField(label="Your Weight[kg]")
+    height = forms.IntegerField(label="Your Height[cm]")
     age = forms.IntegerField(label="Your Age")
     gender = forms.CharField(label="Your Gender", widget=forms.RadioSelect(choices=GENDER_CHOICES))
 
 
 class AdvancedMealForm(forms.Form):
     name = forms.CharField(label="Name")
-    proteins = forms.IntegerField(label="Proteins")
-    carbohydrates = forms.IntegerField(label="Carbohydrates")
-    fats = forms.IntegerField(label="Fats")
+    proteins = forms.IntegerField(label="Proteins[g]")
+    carbohydrates = forms.IntegerField(label="Carbohydrates[g]")
+    fats = forms.IntegerField(label="Fats[g]")
     category = forms.CharField(label="Category")
     kcal_quantity = forms.CharField(label="Kcal Quantity")
 
@@ -26,3 +26,5 @@ class AdvancedMealForm(forms.Form):
         model = AdvancedMeal
         fields = ["name", "proteins", "carbohydrates", "fats",
                   "category", "kcal_quantity", ]
+
+
