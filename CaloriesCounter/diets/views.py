@@ -10,7 +10,7 @@ def get_personal_form(request):
         form = PersonalForm(request.POST)
         if form.is_valid():
             request.session['data_dict'] = form.cleaned_data
-            return HttpResponseRedirect('/diets/mealform/')
+            return HttpResponseRedirect('/diets/advanced/')
 
     else:
         form = PersonalForm()

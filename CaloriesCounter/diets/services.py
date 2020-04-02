@@ -30,11 +30,11 @@ class PersonalFormDataService:
             return int(655 + 9.6 * self.data["weight"] + 1.8 * self.data["height"] - 4.7 * self.data["age"])
 
     def required_proteins(self):
-        return 1.2 * self.data["weight"]
+        return int(1.2 * self.data["weight"])
 
     def required_carbohydrates(self):
-        return 3 * self.data["weight"]
+        return int(3 * self.data["weight"])
 
     def required_fats(self):
-        return (0.3 * self.get_ppm()) / 9
+        return int((0.3 * self.get_ppm()) / 9)
 
