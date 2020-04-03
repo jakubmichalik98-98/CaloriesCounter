@@ -12,7 +12,9 @@
 </div>
 <div>
     <br>You should eat today {{ppm}} calories
-    <br> You have eaten today {{kcal_sum}} calories
+    <br>You reduced {{reduced_calories}} calories
+    <br>You have eaten {{kcal_sum}} calories
+    <br>Summary: {{ summary }}
 </div>
 <div>
     <br> You should consume {{required_proteins}}g of proteins
@@ -26,5 +28,6 @@
     <br> You should consume {{required_fats}}g of fats
     <br> You consume {{fats_sum}}g fats
 </div>
+<p><a href="{% url 'logout' %}">logout</a></p>
 </body>
 </html>

@@ -1,5 +1,25 @@
-from .models import AdvancedMeal
+from .models import AdvancedMeal, ReduceKcal
 from typing import Dict
+
+
+class CountingReducedCaloriesService:
+    def __init__(self, today_reduce: ReduceKcal.today_objects.all()):
+        self.today_reduce = today_reduce
+        self.kcal_dict = {
+            'running': 750,
+            'boxing': 592,
+            'skiing': 420,
+            'basketball': 510,
+            'football': 555,
+            'volleyball': 470,
+        }
+        self.activity_list = [obj.activity for obj in today_reduce]
+        self.hours_list = [obj.hours for obj in today_reduce]
+        self.reducted_sum = 0
+
+    def get_reduced_kcal(self):
+        return sum([self.kcal_dict[self.activity_list[index]] * self.hours_list[index] for index in
+                    range(len(self.activity_list))])
 
 
 class AdvancedModelDataService:
@@ -38,3 +58,11 @@ class PersonalFormDataService:
     def required_fats(self):
         return int((0.3 * self.get_ppm()) / 9)
 
+
+class SummaryCaloriesService:
+    def __init__(self, sum_of_kcal: int, reduce_of_kcal: int):
+        self.sum_of_kcal = sum_of_kcal
+        self.reduce_of_kcal = reduce_of_kcal
+
+    def get_summary_of_kcal(self):
+        return self.sum_of_kcal - self.reduce_of_kcal

@@ -1,9 +1,25 @@
 from django import forms
-from .models import AdvancedMeal
+from .models import AdvancedMeal, ReduceKcal
 
 GENDER_CHOICES = [
     ("male", "Male"),
     ("female", "Female"),
+]
+
+ACTIVITY_CHOICES = [
+    ("running", "Running"),
+    ("boxing", "Boxing"),
+    ("skiing", "Skiing"),
+    ("basketball", "Basketball"),
+    ("football", "Football"),
+    ("volleyball", "Volleyball"),
+]
+
+TIME_CHOICES = [
+    (1, "1 hour"),
+    (2, "2 hours"),
+    (3, "3 hours"),
+    (4, "4 hours"),
 ]
 
 
@@ -28,3 +44,10 @@ class AdvancedMealForm(forms.Form):
                   "category", "kcal_quantity", ]
 
 
+class ReduceForm(forms.Form):
+    activity = forms.CharField(label="Activity", widget=forms.RadioSelect(choices=ACTIVITY_CHOICES))
+    hours = forms.IntegerField(label="Hours", widget=forms.RadioSelect(choices=TIME_CHOICES))
+
+    class Meta:
+        model = ReduceKcal
+        fields = ["activity", "hours"]
