@@ -2,14 +2,13 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Meal</title>
+    <title>Reduce</title>
 </head>
 <body>
-<form action="/diets/mealform/" method="post">
+<form action="/diets/reduceform/" method="post">
     {% csrf_token %}
-    {{ meal_form.as_p }}
+    {{ reduced_form.as_p }}
     <input type="submit" value="Submit">
 </form>
-<p><a href="{% url 'logout' %}">logout</a></p>
 </body>
 </html>
