@@ -28,6 +28,14 @@
     <br> You should consume {{required_fats}}g of fats
     <br> You consume {{fats_sum}}g fats
 </div>
+<div>
+    <br>If you want to add new meal, click here
+    <a href="{% url 'personal_form' %}">Add new meal</a>
+</div>
+<div>
+    <br>Or if you had some activity today, click here
+    <a href="{% url 'reduce_form' %}">Add your activity</a>
+</div>
 <p><a href="{% url 'logout' %}">logout</a></p>
 </body>
 </html>
