@@ -9,7 +9,7 @@ class TodayAdvancedMealManager(models.Manager):
 
 class WeekAdvancedMealManager(models.Manager):
     def get_queryset(self):
-        return super().get_queryset().filter(date_added__gte=date.today() - timedelta(days=7))
+        return super().get_queryset().filter(date_added__gte=date.today() - timedelta(days=6))
 
 
 class AdvancedMeal(models.Model):

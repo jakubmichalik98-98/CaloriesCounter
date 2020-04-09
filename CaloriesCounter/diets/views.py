@@ -5,6 +5,7 @@ from .models import AdvancedMeal, ReduceKcal
 from .services.services import AdvancedModelDataService, PersonalFormDataService, CountingReducedCaloriesService, \
     SummaryCaloriesService
 from .services.week_services import WeekMealsDataService
+from django.http import JsonResponse
 
 
 def get_personal_form(request):
@@ -96,6 +97,20 @@ def advanced_info(request):
                "required_carbohydrates": required_carbohydrates,
                "required_proteins": required_proteins, "reduced_calories": reduced_calories, "summary": summary_of_kcal,
                "sum_week_kcal": sum_week_kcal, "avg_week_kcal": avg_week_kcal, "max_week": max_week_kcal, "min_week":
-               min_week_kcal, "most_frequent_category": most_frequent_category}
+                   min_week_kcal, "most_frequent_category": most_frequent_category}
 
     return render(request, "diets/advanced.html", context)
+
+
+def get_calories_chart(request):
+    return render(request, "diets/chart.html")
+
+
+def calories_chart(request):
+    week_objects = AdvancedMeal.week_objects.all()
+    week_service = WeekMealsDataService(week_objects, request.user.username)
+    week_data_dict = week_service.sum_each_day_calories()
+    labels = [keys for keys in week_data_dict]
+    data = [values for keys, values in week_data_dict.items()]
+
+    return JsonResponse(data={'labels': labels, 'data': data})

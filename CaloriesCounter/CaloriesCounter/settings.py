@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'calories.apps.CaloriesConfig',
     'diets',
+    'chartjs',
 ]
 
 MIDDLEWARE = [
