@@ -1,10 +1,11 @@
-from .models import AdvancedMeal, ReduceKcal
+from ..models import AdvancedMeal, ReduceKcal
 from typing import Dict
 
 
 class CountingReducedCaloriesService:
-    def __init__(self, today_reduce: ReduceKcal.today_objects.all()):
+    def __init__(self, today_reduce: ReduceKcal.today_objects.all(), auth_user):
         self.today_reduce = today_reduce
+        self.today_reduce_auth_user = [objects for objects in self.today_reduce if objects.users == auth_user]
         self.kcal_dict = {
             'running': 750,
             'boxing': 592,
@@ -13,8 +14,8 @@ class CountingReducedCaloriesService:
             'football': 555,
             'volleyball': 470,
         }
-        self.activity_list = [obj.activity for obj in today_reduce]
-        self.hours_list = [obj.hours for obj in today_reduce]
+        self.activity_list = [obj.activity for obj in self.today_reduce_auth_user]
+        self.hours_list = [obj.hours for obj in self.today_reduce_auth_user]
         self.reducted_sum = 0
 
     def get_reduced_kcal(self):
@@ -23,20 +24,21 @@ class CountingReducedCaloriesService:
 
 
 class AdvancedModelDataService:
-    def __init__(self, meal_model: AdvancedMeal.today_objects.all()):
+    def __init__(self, meal_model: AdvancedMeal.today_objects.all(), auth_user):
         self.meal_model = meal_model
+        self.object_with_login_user = [objects for objects in self.meal_model if objects.users == auth_user]
 
     def sum_of_proteins(self):
-        return sum([meal.proteins for meal in self.meal_model])
+        return sum([meal.proteins for meal in self.object_with_login_user])
 
     def sum_of_carbohydrates(self):
-        return sum([meal.carbohydrates for meal in self.meal_model])
+        return sum([meal.carbohydrates for meal in self.object_with_login_user])
 
     def sum_of_fats(self):
-        return sum([meal.fats for meal in self.meal_model])
+        return sum([meal.fats for meal in self.object_with_login_user])
 
     def sum_of_kcal(self):
-        return sum([meal.kcal_quantity for meal in self.meal_model])
+        return sum([meal.kcal_quantity for meal in self.object_with_login_user])
 
 
 class PersonalFormDataService:
