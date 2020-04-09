@@ -13,20 +13,20 @@
 <div>
     <br>You should eat today {{ppm}} calories
     <br>You reduced {{reduced_calories}} calories
-    <br>You have eaten {{kcal_sum}} calories
+    <br>You have eaten {{sum_of_kcal}} calories
     <br>Summary: {{ summary }}
 </div>
 <div>
     <br> You should consume {{required_proteins}}g of proteins
-    <br> You consume {{proteins_sum}}g proteins
+    <br> You consume {{sum_of_proteins}}g proteins
 </div>
 <div>
     <br> You should consume {{required_carbohydrates}}g of carbohydrates
-    <br> You consume {{carbohydrates_sum}}g carbohydrates
+    <br> You consume {{sum_of_carbohydrates}}g carbohydrates
 </div>
 <div>
     <br> You should consume {{required_fats}}g of fats
-    <br> You consume {{fats_sum}}g fats
+    <br> You consume {{sum_of_fats}}g fats
 </div>
 
 <div>
@@ -37,8 +37,8 @@
         {% endfor %}
     </ul>
     Average: {{avg_week_kcal}}
-    <br>Max: {{max_week}}
-    <br>Min: {{min_week}}
+    <br>Max: {{max_week_kcal}}
+    <br>Min: {{min_week_kcal}}
     <br>Most category: {{most_frequent_category}}
     <br>{{login_user}}
 
