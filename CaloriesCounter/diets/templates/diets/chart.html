@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Chart</title>
+</head>
+<body>
+<div>
+    <h1>At this page you can see your week eaten calories balance</h1>
+</div>
+
+<div id="container" style="width: 75%;">
+    <canvas id="calories-chart" width="400" height="200" data-url="{% url 'calories-chart' %}"></canvas>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
+  <script>
+
+    $(function () {
+
+      var $caloriesChart = $("#calories-chart");
+      $.ajax({
+        url: $caloriesChart.data("url"),
+        success: function (data) {
+
+          var ctx = $caloriesChart[0].getContext("2d");
+
+          new Chart(ctx, {
+            type: 'line',
+            data: {
+              labels: data.labels,
+              datasets: [{
+                label: 'Calories',
+                borderColor: 'red',
+                data: data.data
+              }]
+            },
+            options: {
+              responsive: true,
+              legend: {
+                position: 'bottom'
+              },
+              title: {
+                display: true,
+                text: 'Your calories eaten last week'
+              }
+            }
+          });
+
+        }
+      });
+
+    });
+
+  </script>
+</body>
+</html>
