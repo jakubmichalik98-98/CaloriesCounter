@@ -1,10 +1,15 @@
 from django.db import models
-from datetime import date
+from datetime import date, timedelta
 
 
 class TodayAdvancedMealManager(models.Manager):
     def get_queryset(self):
         return super().get_queryset().filter(date_added=date.today())
+
+
+class WeekAdvancedMealManager(models.Manager):
+    def get_queryset(self):
+        return super().get_queryset().filter(date_added__gte=date.today() - timedelta(days=7))
 
 
 class AdvancedMeal(models.Model):
@@ -19,6 +24,7 @@ class AdvancedMeal(models.Model):
 
     objects = models.Manager()
     today_objects = TodayAdvancedMealManager()
+    week_objects = WeekAdvancedMealManager()
 
     def __str__(self):
         return f"{self.name}"
@@ -32,6 +38,7 @@ class TodayReduceKcalManager(models.Manager):
 class ReduceKcal(models.Model):
     activity = models.CharField(max_length=200)
     hours = models.IntegerField(default=0)
+    users = models.CharField(max_length=200, default=None)
     date_added = models.DateField(default=date.today)
 
     objects = models.Manager()

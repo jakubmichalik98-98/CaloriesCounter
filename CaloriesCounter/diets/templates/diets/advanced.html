@@ -28,6 +28,29 @@
     <br> You should consume {{required_fats}}g of fats
     <br> You consume {{fats_sum}}g fats
 </div>
+
+<div>
+    <br>There are some stats from last 7 days:
+    <ul>
+    {% for date,sum in sum_week_kcal.items %}
+        <li>{{date}}: {{sum}}</li>
+        {% endfor %}
+    </ul>
+    Average: {{avg_week_kcal}}
+    <br>Max: {{max_week}}
+    <br>Min: {{min_week}}
+    <br>Most category: {{most_frequent_category}}
+    <br>{{login_user}}
+
+</div>
+<div>
+    <br>If you want to add new meal, click here
+    <a href="{% url 'meal_form' %}">Add new meal</a>
+</div>
+<div>
+    <br>Or if you had some activity today, click here
+    <a href="{% url 'reduce_form' %}">Add your activity</a>
+</div>
 <p><a href="{% url 'logout' %}">logout</a></p>
 </body>
 </html>

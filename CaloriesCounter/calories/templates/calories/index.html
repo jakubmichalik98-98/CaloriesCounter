@@ -9,7 +9,12 @@
 <div>
     <ul>
     {% for meal in meal_list %}
-    <li>{{ meal }}</li>
+    <li>
+        {{ meal }}
+    <form action="delete_calories/{{meal.id}}" method = "post">{% csrf_token %}
+            <input type="submit" value="Delete">
+</form>
+    </li>
         {% endfor %}
     </ul>
 </div>

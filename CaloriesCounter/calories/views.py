@@ -15,8 +15,16 @@ def index(request):
         if my_meal.date_added == today_date and my_meal.users == request.user.username:
             meal_list.append(my_meal)
             kcal_sum += my_meal.kcal_quantity
+
     context = {'meal_list': meal_list, 'kcal_sum': kcal_sum}
+
     return render(request, 'calories/index.html', context)
+
+
+def delete_calories(request, i):
+    y = Meal.objects.get(pk=i)
+    y.delete()
+    return HttpResponseRedirect('/calories/')
 
 
 def get_meal(request):

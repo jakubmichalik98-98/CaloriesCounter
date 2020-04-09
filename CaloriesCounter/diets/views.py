@@ -2,8 +2,9 @@ from django.shortcuts import render
 from .forms import PersonalForm, AdvancedMealForm, ReduceForm
 from django.http import HttpResponseRedirect
 from .models import AdvancedMeal, ReduceKcal
-from .services import AdvancedModelDataService, PersonalFormDataService, CountingReducedCaloriesService, \
+from .services.services import AdvancedModelDataService, PersonalFormDataService, CountingReducedCaloriesService, \
     SummaryCaloriesService
+from .services.week_services import WeekMealsDataService
 
 
 def get_personal_form(request):
@@ -47,7 +48,7 @@ def reduce_form(request):
         if reduced_form.is_valid():
             activity = reduced_form.cleaned_data["activity"]
             hours = reduced_form.cleaned_data["hours"]
-            reduce_kcal = ReduceKcal(activity=activity, hours=hours)
+            reduce_kcal = ReduceKcal(activity=activity, hours=hours, users=request.user.username)
             reduce_kcal.save()
             return HttpResponseRedirect("/diets/advanced/")
 
@@ -58,10 +59,14 @@ def reduce_form(request):
 
 
 def advanced_info(request):
+    login_user = request.user.username
+
     todays_objects = AdvancedMeal.today_objects.all()
     todays_reduce = ReduceKcal.today_objects.all()
-    counting_reduce = CountingReducedCaloriesService(todays_reduce)
-    service_meal = AdvancedModelDataService(todays_objects)
+    week_objects = AdvancedMeal.week_objects.all()
+
+    counting_reduce = CountingReducedCaloriesService(todays_reduce, login_user)
+    service_meal = AdvancedModelDataService(todays_objects, login_user)
     eaten_kcal_sum = service_meal.sum_of_kcal()
     eaten_proteins_sum = service_meal.sum_of_proteins()
     eaten_fats_sum = service_meal.sum_of_fats()
@@ -78,10 +83,19 @@ def advanced_info(request):
     required_fats = service_personal_form.required_fats()
     required_carbohydrates = service_personal_form.required_carbohydrates()
 
+    week_data_object = WeekMealsDataService(week_objects, login_user)
+    sum_week_kcal = week_data_object.sum_each_day_calories()
+    avg_week_kcal = week_data_object.week_average_of_calories()
+    max_week_kcal = week_data_object.get_the_biggest_value()
+    min_week_kcal = week_data_object.get_the_smallest_value()
+    most_frequent_category = week_data_object.get_most_often_category()
+
     context = {"ppm": ppm, 'kcal_sum': eaten_kcal_sum, 'proteins_sum': eaten_proteins_sum,
                'carbohydrates_sum': eaten_carbohydrates_sum,
                'fats_sum': eaten_fats_sum, "required_fats": required_fats,
                "required_carbohydrates": required_carbohydrates,
-               "required_proteins": required_proteins, "reduced_calories": reduced_calories, "summary": summary_of_kcal}
+               "required_proteins": required_proteins, "reduced_calories": reduced_calories, "summary": summary_of_kcal,
+               "sum_week_kcal": sum_week_kcal, "avg_week_kcal": avg_week_kcal, "max_week": max_week_kcal, "min_week":
+               min_week_kcal, "most_frequent_category": most_frequent_category}
 
     return render(request, "diets/advanced.html", context)
