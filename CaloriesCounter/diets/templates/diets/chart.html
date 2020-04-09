@@ -5,8 +5,12 @@
     <title>Chart</title>
 </head>
 <body>
+<div>
+    <h1>At this page you can see your week eaten calories balance</h1>
+</div>
+
 <div id="container" style="width: 75%;">
-    <canvas id="calories-chart" data-url="{% url 'calories-chart' %}"></canvas>
+    <canvas id="calories-chart" width="400" height="200" data-url="{% url 'calories-chart' %}"></canvas>
   </div>
 
   <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
@@ -23,23 +27,23 @@
           var ctx = $caloriesChart[0].getContext("2d");
 
           new Chart(ctx, {
-            type: 'bar',
+            type: 'line',
             data: {
               labels: data.labels,
               datasets: [{
                 label: 'Calories',
-                backgroundColor: 'blue',
+                borderColor: 'red',
                 data: data.data
               }]
             },
             options: {
               responsive: true,
               legend: {
-                position: 'top',
+                position: 'bottom'
               },
               title: {
                 display: true,
-                text: 'Calories Bar Chart'
+                text: 'Your calories eaten last week'
               }
             }
           });
