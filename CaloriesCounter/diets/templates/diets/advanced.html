@@ -53,5 +53,6 @@
     <br>Or if you had some activity today, click here
     <a href="{% url 'reduce_form' %}">Add your activity</a>
 </div>
-<p><a href="{% url 'logout' %}">logout</a></p>
 {% endblock %}
+
+{% block logout %}<p><a href="{% url 'logout' %}">logout</a></p>{% endblock %}

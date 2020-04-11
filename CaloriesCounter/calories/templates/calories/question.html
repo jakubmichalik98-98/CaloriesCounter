@@ -28,6 +28,8 @@
     <a href="{% url 'personal_form' %}">Advanced</a>
 
 </div>
-<p><a href="{% url 'logout' %}">logout</a></p>
+
 
 {% endblock %}
+
+{% block logout %}<p><a href="{% url 'logout' %}">logout</a></p>{% endblock %}
