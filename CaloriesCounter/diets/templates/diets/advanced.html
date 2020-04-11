@@ -1,11 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Advanced</title>
-</head>
-<body>
-<h1>Let's see more detail about your today's meals</h1>
+{% extends 'base.html' %}
+
+{% block title %}Advanced{% endblock %}
+
+{% block content %}
+<h2>Let's see more detail about your today's meals</h2>
 <div>
     In that part of app you can see how many calories, fats etc you have eaten and how many
     you should eat to reach optimal values.
@@ -56,5 +54,4 @@
     <a href="{% url 'reduce_form' %}">Add your activity</a>
 </div>
 <p><a href="{% url 'logout' %}">logout</a></p>
-</body>
-</html>
+{% endblock %}

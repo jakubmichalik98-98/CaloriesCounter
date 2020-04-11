@@ -1,14 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Reduce</title>
-</head>
+{% extends 'base.html' %}
+
+{% block title %}ReduceForm{% endblock %}
+
+{% block content %}
 <body>
 <form action="/diets/reduceform/" method="post">
     {% csrf_token %}
     {{ reduced_form.as_p }}
     <input type="submit" value="Submit">
 </form>
-</body>
-</html>
+{% endblock %}

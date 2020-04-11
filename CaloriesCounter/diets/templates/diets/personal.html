@@ -1,10 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Personal</title>
-</head>
-<body>
+{% extends 'base.html' %}
+
+{% block title %}PersonalForm{% endblock %}
+
+{% block content %}
 <h1>Welcome in part of advanced calories counter</h1>
 <p>
     First you have to do is fill a simple form given below. In this part of app you can check not only
@@ -16,5 +14,4 @@
     <input type="submit" value="Submit">
 </form>
 <p><a href="{% url 'logout' %}">logout</a></p>
-</body>
-</html>
+{% endblock %}

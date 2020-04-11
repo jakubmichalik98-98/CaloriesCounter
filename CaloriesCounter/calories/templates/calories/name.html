@@ -1,10 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'base.html' %}
+
+{% block title %}Name{% endblock %}
+{% block content %}
 <form action="/calories/meal/" method="post">
     {% csrf_token %}
     {{ form.as_p }}
@@ -24,6 +21,4 @@
 </div>
 
 <p><a href="{% url 'logout' %}">logout</a></p>
-
-</body>
-</html>
+{% endblock %}

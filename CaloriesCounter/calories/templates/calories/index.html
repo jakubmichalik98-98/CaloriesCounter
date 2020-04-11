@@ -1,10 +1,8 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'base.html' %}
+
+{% block title %}Index{% endblock %}
+{% block content %}
 <div>{{user.username}} you have eaten today:</div>
 <div>
     <ul>
@@ -24,5 +22,4 @@
 </div>
 
 <p><a href="{% url 'logout' %}">logout</a></p>
-</body>
-</html>
+{% endblock %}

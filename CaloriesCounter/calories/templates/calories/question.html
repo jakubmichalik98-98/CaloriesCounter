@@ -1,11 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Question</title>
-</head>
-<body>
-<h1>Welcome in Calories Counter app!</h1>
+{% extends 'base.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+
+<h2>Welcome in Calories Counter app!</h2>
 <div>
     This application is divided in two parts. If you would like just to control what you eat
     and check just how many calories, first part is for you! There is as option to add meal
@@ -30,5 +29,5 @@
 
 </div>
 <p><a href="{% url 'logout' %}">logout</a></p>
-</body>
-</html>
+
+{% endblock %}

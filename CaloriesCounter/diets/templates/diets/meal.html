@@ -1,15 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Meal</title>
-</head>
-<body>
+{% extends 'base.html' %}
+
+{% block title %}MealForm{% endblock %}
+
+{% block content %}
+
 <form action="/diets/mealform/" method="post">
     {% csrf_token %}
     {{ meal_form.as_p }}
     <input type="submit" value="Submit">
 </form>
 <p><a href="{% url 'logout' %}">logout</a></p>
-</body>
-</html>
+{% endblock %}
