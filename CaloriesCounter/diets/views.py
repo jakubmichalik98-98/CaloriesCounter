@@ -63,7 +63,6 @@ def reduce_form(request):
 
 def advanced_info(request):
     login_user = request.user.username
-
     todays_objects = AdvancedMeal.today_objects.all()
     todays_reduce = ReduceKcal.today_objects.all()
     week_objects = AdvancedMeal.week_objects.all()
