@@ -1,0 +1,22 @@
+.body{
+background-color:powderblue;
+height:100%;
+}
+.main{
+background-color:powderblue;
+width:100%;
+padding-left: 20px;
+padding-top: 20px;
+padding-bottom: 20px;
+}
+.header{
+color:blue;
+}
+.logout{
+display:flex;
+justify-content: flex-end;
+align-items: flex-end;
+}
+.html{
+height:100%;
+}

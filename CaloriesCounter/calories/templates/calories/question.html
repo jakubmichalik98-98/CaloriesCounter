@@ -4,32 +4,29 @@
 
 {% block content %}
 
-<h2>Welcome in Calories Counter app!</h2>
-<div>
-    This application is divided in two parts. If you would like just to control what you eat
-    and check just how many calories, first part is for you! There is as option to add meal
-    and you can after check what you have eaten today and how much calories have your meals had.
+<h2 class="d-flex justify-content-center">Welcome in Calories Counter app!</h2>
+<h3 class="d-flex justify-content-center">This application is divided in two parts.</h3>
+<div class="container">
+    <div class="row">
+        <div class="col-sm">
+            <br>If you would like just to control what you eat
+            and check just how many calories, first part is for you! There is as option to add meal
+            and you can after check what you have eaten today and how much calories have your meals had.
+            <br>If you want to see what have you eaten today, click here
+            <p class="font-weight-bold"><a href="{% url 'index' %}">Your meals today</a></p>
+            <br>Or if you want to add new meal to your today's meals, click here
+            <p class="font-weight-bold"><a href="{% url 'get_name' %}">Add new meal</a></p>
+        </div>
+        <div class="col-sm">
+            <br>If you are sportsmen or you just want to control your weight in more details, that part is for you!
+            You have to fill a form about your current weight, height, age and gender and add your meal, and
+            thanks for it application will show you information about details of your today's meals
+            <br>If you want to control your meal data in more advanced way, click here
+            <p class="font-weight-bold"><a href="{% url 'personal_form' %}">Advanced</a></p>
+        </div>
+    </div>
 </div>
-
-<div>
-    <br>If you want to see what have you eaten today, click here
-    <a href="{% url 'index' %}">Your meals today</a>
-
-    <br>If you want to add new meal to your today's meals, click here
-    <a href="{% url 'get_name' %}">Add new meal</a>
-</div>
-<div>
-    <br>If you are sportsmen or you just want to control your weight in more details, that part is for you!
-    You have to fill a form about your current weight, height, age and gender and add your meal, and
-    thanks for it application will show you information about details of your today's meals
-</div>
-<div>
-    <br>If you want to control your meal data in more advanced way, click here
-    <a href="{% url 'personal_form' %}">Advanced</a>
-
-</div>
-
 
 {% endblock %}
 
-{% block logout %}<p><a href="{% url 'logout' %}">logout</a></p>{% endblock %}
+{% block logout %}<p class="font-weight-bold"><a href="{% url 'logout' %}">logout</a></p>{% endblock %}

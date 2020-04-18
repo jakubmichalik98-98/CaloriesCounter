@@ -10,7 +10,7 @@
     <li>
         {{ meal }}
     <form action="delete_calories/{{meal.id}}" method = "post">{% csrf_token %}
-            <input type="submit" value="Delete">
+            <input class="btn btn-primary btn-sm" type="submit" value="Delete">
 </form>
     </li>
         {% endfor %}
@@ -21,7 +21,6 @@
     {{kcal_sum}}
 </div>
 
-<p><a href="{% url 'logout' %}">logout</a></p>
 {% endblock %}
 
 {% block logout %}<p><a href="{% url 'logout' %}">logout</a></p>{% endblock %}

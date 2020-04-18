@@ -1,10 +1,25 @@
-{% extends 'base.html' %}
+{% load static %}
+<html>
+<head>
 
-{% block title %}Chart{% endblock %}
+     <meta charset="utf-8">
+    <title>Chart</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{% static 'users/style.css' %}">
+</head>
+<body>
+<div style="background-color:lightblue; padding-right:10px" class="d-flex justify-content-end">
+    <p><a href="{% url 'logout' %}">logout</a></p>
+    </div>
+    <div style="background-color:lightblue; height:130px;" class="d-flex justify-content-center">
+    <h1 class="header">Calories counter app</h1>
 
-{% block content %}
+
+
+</div>
 <div>
-    <h1>At this page you can see your week eaten calories balance</h1>
+    <h2>At this page you can see your week eaten calories balance</h2>
 </div>
 
 <div id="container" style="width: 75%;">
@@ -52,6 +67,5 @@
     });
 
   </script>
-{% endblock %}
-
-{% block logout %}<p><a href="{% url 'logout' %}">logout</a></p>{% endblock %}
+</body>
+</html>
