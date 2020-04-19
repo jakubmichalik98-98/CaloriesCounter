@@ -8,9 +8,9 @@
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="{% static 'users/style.css' %}">
 </head>
-<body>
+<body style="background-color:powderblue;">
 <div style="background-color:lightblue; padding-right:10px" class="d-flex justify-content-end">
-    <p><a href="{% url 'logout' %}">logout</a></p>
+    <p><a class="font-weight-bold" href="{% url 'logout' %}">logout</a></p>
     </div>
     <div style="background-color:lightblue; height:130px;" class="d-flex justify-content-center">
     <h1 class="header">Calories counter app</h1>
@@ -19,10 +19,10 @@
 
 </div>
 <div>
-    <h2>At this page you can see your week eaten calories balance</h2>
+    <h2 class="chart-title">At this page you can see your week eaten calories balance</h2>
 </div>
 
-<div id="container" style="width: 75%;">
+<div class="chart" style="width: 75%;">
     <canvas id="calories-chart" width="400" height="200" data-url="{% url 'calories-chart' %}"></canvas>
   </div>
 
@@ -67,8 +67,10 @@
     });
 
   </script>
+
 <div class="footer">
     <p><b>Thanks for using this app</b></p>
 </div>
+
 </body>
 </html>

@@ -4,10 +4,14 @@
 
 {% block content %}
 <h1>Welcome in part of advanced calories counter</h1>
-<p>
+<p class="form-description">
     First you have to do is fill a simple form given below. In this part of app you can check not only
-    how many calories you have eaten but also if you eat enough calories and check details of your eaten products:
+    how many calories you have eaten but also if you eat enough calories and check details of your eaten products. It
+    is necessary to fill this form every time you visit advanced part of application, because it let app to count
+    your needed calories, proteins, carbohydrates and fats precisely. The most important is your weight, it is important
+    to enter the exact value.
 </p>
+<h3>Personal form:</h3>
 <form action="/diets/personalform/" method="post">
     {% csrf_token %}
     {{ form.as_p }}
@@ -15,4 +19,4 @@
 </form>
 {% endblock %}
 
-{% block logout %}<p><a href="{% url 'logout' %}">logout</a></p>{% endblock %}
+{% block logout %}<p class="font-weight-bold"><a href="{% url 'logout' %}">logout</a></p>{% endblock %}

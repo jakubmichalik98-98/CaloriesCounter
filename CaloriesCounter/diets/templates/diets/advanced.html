@@ -37,7 +37,7 @@
 
         <div class="col-sm">
              <h3>Week part</h3>
-            <br>There are some stats from last 7 days:
+            <br>There are stats (eaten calories) from last 7 days:
             <ul>
             {% for date,sum in sum_week_kcal.items %}
                 <li>{{date}}: {{sum}}</li>
@@ -46,10 +46,10 @@
             Average: {{avg_week_kcal}}
             <br>Max: {{max_week_kcal}}
             <br>Min: {{min_week_kcal}}
-            <br>Most category: {{most_frequent_category}}
+            <br>Most eaten category: {{most_frequent_category}}
             <br>{{login_user}}
 
-            <br>If you want to show your week caloric balance, click here
+            <br>If you want to show chart with eaten calories last week click here
             <p class="font-weight-bold"><a href="{% url 'chart' %}">Show chart</a></p>
 
         </div>

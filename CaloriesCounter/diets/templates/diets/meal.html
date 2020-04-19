@@ -3,6 +3,10 @@
 {% block title %}MealForm{% endblock %}
 
 {% block content %}
+<h1>Fill advanced meal form</h1>
+<p>
+    In this part of application you can fill a meal form with more options than in simple part.
+</p>
 
 <form action="/diets/mealform/" method="post">
     {% csrf_token %}
@@ -11,4 +15,4 @@
 </form>
 {% endblock %}
 
-{% block logout %}<p><a href="{% url 'logout' %}">logout</a></p>{% endblock %}
+{% block logout %}<p class="font-weight-bold"><a href="{% url 'logout' %}">logout</a></p>{% endblock %}

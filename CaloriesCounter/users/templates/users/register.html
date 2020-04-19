@@ -1,22 +1,20 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'base.html' %}
+
+{% block title %}Register{% endblock %}
+
+{% block content %}
 <div>
     <form method="POST">
         {% csrf_token %}
         <fieldset>
-            <legend>Join today</legend>
+            <legend><b>Join today!</b></legend>
             {{ form.as_p }}
         </fieldset>
         <div>
-            <button type="submit">Sign up</button>
+            <button class="btn btn-primary" type="submit">Sign up</button>
         </div>
     </form>
 </div>
+{% endblock %}
 
-</body>
-</html>
+

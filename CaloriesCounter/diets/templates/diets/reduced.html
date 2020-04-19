@@ -3,12 +3,17 @@
 {% block title %}ReduceForm{% endblock %}
 
 {% block content %}
-<body>
-<form action="/diets/reduceform/" method="post">
-    {% csrf_token %}
-    {{ reduced_form.as_p }}
+<h1>Fill reduce form</h1>
+<p>If you had a sport activity today, fill this form, application subtract burned calories from your today's summary
+    result
+</p>
+<div class="reduce-form">
+    <form action="/diets/reduceform/" method="post">
+        {% csrf_token %}
+        {{ reduced_form.as_p }}
     <input class="btn btn-primary" type="submit" value="Submit">
-</form>
+    </form>
+</div>
 {% endblock %}
 
-{% block logout %}<p><a href="{% url 'logout' %}">logout</a></p>{% endblock %}
+{% block logout %}<p class="font-weight-bold"><a href="{% url 'logout' %}">logout</a></p>{% endblock %}

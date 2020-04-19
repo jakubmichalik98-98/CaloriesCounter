@@ -23,7 +23,7 @@ border-style:solid;
 }
 .footer{
 height:40px;
-padding-left:87%;
+padding-left:88%;
 padding-bottom:5px;
 width:100%;
 background-color:white;
@@ -35,9 +35,9 @@ position:fixed;
 display:flex;
 justify-content: center;
 align-items: start;
-font-size: large;
+font-size: 30px;
 position:absolute;
-left:50%;
+left:45%;
 }
 .text-sum{
 border-style:solid;
@@ -48,6 +48,7 @@ padding-bottom:15px;
 }
 .list-container{
 width:25%;
+min-height:74%;
 background-color:lightblue;
 border-style:solid;
 border-top: 5px solid lightblue;
@@ -56,4 +57,35 @@ position:absolute;
 left:0;
 top:170px;
 padding-bottom:20px;
+}
+.form-description{
+padding-right:15px;
+}
+.chart-title{
+display:flex;
+justify-content:center;
+}
+.chart{
+left:10%;
+position:absolute;
+}
+.reduce-form{
+padding-bottom:10px;
+}
+.home-text{
+bottom:10%;
+padding-left:37%;
+position:absolute;
+}
+.index-description{
+display:flex;
+justify-content: center;
+padding-right:10px;
+font-size: 25px;
+position:absolute;
+left:27%;
+top:35%;
+}
+.product-list{
+padding-bottom:10px;
 }

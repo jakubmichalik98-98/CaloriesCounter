@@ -2,13 +2,15 @@
 
 {% block title %}Name{% endblock %}
 {% block content %}
+<h2>Meal form</h2>
+<br>
 <form action="/calories/meal/" method="post">
     {% csrf_token %}
     {{ form.as_p }}
     <input class="btn btn-primary" type="submit" value="Submit">
 </form>
 
-<div>
+<div class="product-list">
     As you can see, you can fill a form and enter how many calories has your meal.
     If you don't know how many calories has your meal, check list given below, there
     are basic meals and their kcal quantity:
