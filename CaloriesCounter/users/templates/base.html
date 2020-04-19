@@ -8,8 +8,8 @@
     <link rel="stylesheet" type="text/css" href="{% static 'users/style.css' %}">
 
 </head>
-<body>
-<div style="background-color:lightblue; padding-right:10px" class="d-flex justify-content-end">
+<body class="body">
+<div style="background-color:lightblue; padding-right:10px;, height:20px;" class="d-flex justify-content-end">
     {% block logout %}{% endblock %}
 </div>
 <div style="background-color:lightblue; height:130px;" class="d-flex justify-content-center">
@@ -34,6 +34,9 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
+</div>
+<div class="footer">
+    <p><b>Thanks for using this app</b></p>
 </div>
 </body>
 </html>

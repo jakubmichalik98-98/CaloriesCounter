@@ -3,56 +3,59 @@
 {% block title %}Advanced{% endblock %}
 
 {% block content %}
-<h2>Let's see more detail about your today's meals</h2>
-<div>
-    In that part of app you can see how many calories, fats etc you have eaten and how many
-    you should eat to reach optimal values.
+<h2 class="d-flex justify-content-center">Let's see more detail about your today's meals</h2>
+<div class="d-flex justify-content-center">
+    <b>In this part of app you can see how many calories, fats etc you have eaten and how many
+        you should eat to reach optimal values.</b>
 </div>
-<div>
-    <br>You should eat today {{ppm}} calories
-    <br>You reduced {{reduced_calories}} calories
-    <br>You have eaten {{sum_of_kcal}} calories
-    <br>Summary: {{ summary }}
-</div>
-<div>
-    <br> You should consume {{required_proteins}}g of proteins
-    <br> You consume {{sum_of_proteins}}g proteins
-</div>
-<div>
-    <br> You should consume {{required_carbohydrates}}g of carbohydrates
-    <br> You consume {{sum_of_carbohydrates}}g carbohydrates
-</div>
-<div>
-    <br> You should consume {{required_fats}}g of fats
-    <br> You consume {{sum_of_fats}}g fats
-</div>
+<div class="container">
+    <div class="row">
+        <div class="col-sm">
+            <h3>Today part</h3>
+            <br>You should eat today {{ppm}} calories
+            <br>You reduced {{reduced_calories}} calories
+            <br>You have eaten {{sum_of_kcal}} calories
+            <br>Summary: {{ summary }}
 
-<div>
-    <br>There are some stats from last 7 days:
-    <ul>
-    {% for date,sum in sum_week_kcal.items %}
-        <li>{{date}}: {{sum}}</li>
-        {% endfor %}
-    </ul>
-    Average: {{avg_week_kcal}}
-    <br>Max: {{max_week_kcal}}
-    <br>Min: {{min_week_kcal}}
-    <br>Most category: {{most_frequent_category}}
-    <br>{{login_user}}
+            <br> You should consume {{required_proteins}}g of proteins
+            <br> You consume {{sum_of_proteins}}g proteins
 
-</div>
-<div>
-    <br>If you want to show your week caloric balance, click here
-    <p class="font-weight-bold"><a href="{% url 'chart' %}">Show chart</a></p>
-</div>
-<div>
-    <br>If you want to add new meal, click here
-    <p class="font-weight-bold"><a href="{% url 'meal_form' %}">Add new meal</a></p>
-</div>
-<div>
-    <br>Or if you had some activity today, click here
-    <p class="font-weight-bold"><a href="{% url 'reduce_form' %}">Add your activity</a></p>
+
+            <br> You should consume {{required_carbohydrates}}g of carbohydrates
+            <br> You consume {{sum_of_carbohydrates}}g carbohydrates
+
+
+            <br> You should consume {{required_fats}}g of fats
+            <br> You consume {{sum_of_fats}}g fats
+
+            <br><br><br>If you want to add new meal, click here
+            <br><b><a href="{% url 'meal_form' %}">Add new meal</a></b>
+
+            <br>Or if you had some activity today, click here
+            <p class="font-weight-bold"><a href="{% url 'reduce_form' %}">Add your activity</a></p>
+        </div>
+
+        <div class="col-sm">
+             <h3>Week part</h3>
+            <br>There are some stats from last 7 days:
+            <ul>
+            {% for date,sum in sum_week_kcal.items %}
+                <li>{{date}}: {{sum}}</li>
+            {% endfor %}
+            </ul>
+            Average: {{avg_week_kcal}}
+            <br>Max: {{max_week_kcal}}
+            <br>Min: {{min_week_kcal}}
+            <br>Most category: {{most_frequent_category}}
+            <br>{{login_user}}
+
+            <br>If you want to show your week caloric balance, click here
+            <p class="font-weight-bold"><a href="{% url 'chart' %}">Show chart</a></p>
+
+        </div>
+    </div>
 </div>
 {% endblock %}
 
-{% block logout %}<p><a href="{% url 'logout' %}">logout</a></p>{% endblock %}
+{% block logout %}<p class="font-weight-bold"><a href="{% url 'logout' %}">logout</a></p>
+{% endblock %}

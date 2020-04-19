@@ -1,9 +1,7 @@
 .body{
 background-color:powderblue;
-height:100%;
 }
 .main{
-background-color:powderblue;
 width:100%;
 padding-left: 20px;
 padding-top: 20px;
@@ -19,4 +17,43 @@ align-items: flex-end;
 }
 .html{
 height:100%;
+}
+.col-sm{
+border-style:solid;
+}
+.footer{
+height:40px;
+padding-left:87%;
+padding-bottom:5px;
+width:100%;
+background-color:white;
+font-color:black;
+bottom:0;
+position:fixed;
+}
+.sum{
+display:flex;
+justify-content: center;
+align-items: start;
+font-size: large;
+position:absolute;
+left:50%;
+}
+.text-sum{
+border-style:solid;
+border-color:blue;
+}
+.eaten-list{
+padding-bottom:15px;
+}
+.list-container{
+width:25%;
+background-color:lightblue;
+border-style:solid;
+border-top: 5px solid lightblue;
+border-left: 5px solid lightblue;
+position:absolute;
+left:0;
+top:170px;
+padding-bottom:20px;
 }

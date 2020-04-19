@@ -3,8 +3,16 @@
 
 {% block title %}Index{% endblock %}
 {% block content %}
-<div>{{user.username}} you have eaten today:</div>
-<div>
+<div class="sum">
+<p class="text-sum"><b>Sum of calories you've eaten today:
+     {{kcal_sum}}</b></p>
+</div>
+<div class="list-container">
+<h3>{{user.username}} you have eaten today:</h3>
+
+
+
+<div class="eaten-list">
     <ul>
     {% for meal in meal_list %}
     <li>
@@ -16,11 +24,8 @@
         {% endfor %}
     </ul>
 </div>
-<div>
-    Sum of calories you've eaten today:
-    {{kcal_sum}}
 </div>
 
 {% endblock %}
 
-{% block logout %}<p><a href="{% url 'logout' %}">logout</a></p>{% endblock %}
+{% block logout %}<p class="font-weight-bold"><a href="{% url 'logout' %}">logout</a></p>{% endblock %}
